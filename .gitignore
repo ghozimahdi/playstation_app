@@ -97,3 +97,5 @@ shared/core/.env_*
 
 # Linux related (it's optional). This is temporary solution
 **/linux/
+
+.env
