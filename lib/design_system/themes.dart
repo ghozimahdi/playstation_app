@@ -6,6 +6,7 @@ import 'package:ps5_99/design_system/typography_extension.dart';
 
 final ThemeData lightTheme = ThemeData.light(useMaterial3: true).copyWith(
   colorScheme: lightColorSchemes,
+  textTheme: textTheme,
   scaffoldBackgroundColor: lightColorSchemes.surface,
   dividerColor: lightColorSchemes.outline,
   listTileTheme: const ListTileThemeData(
@@ -14,7 +15,6 @@ final ThemeData lightTheme = ThemeData.light(useMaterial3: true).copyWith(
   iconTheme: IconThemeData(
     color: lightColorSchemes.primary,
   ),
-  textTheme: textTheme,
   dividerTheme: DividerThemeData(
     thickness: 1,
     color: lightColorSchemes.outline,
@@ -63,6 +63,8 @@ final ThemeData lightTheme = ThemeData.light(useMaterial3: true).copyWith(
     style: FilledButton.styleFrom(
       disabledBackgroundColor: colors.disabled,
       disabledForegroundColor: lightColorSchemes.tertiary,
+      foregroundColor: lightColorSchemes.surface,
+      backgroundColor: lightColorSchemes.primary,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(8.r),
       ),
@@ -146,6 +148,24 @@ final ThemeData lightTheme = ThemeData.light(useMaterial3: true).copyWith(
     padding: WidgetStateProperty.all(EdgeInsets.only(left: 8.w, right: 16.w)),
     shadowColor: WidgetStateProperty.all(colors.gray70.withOpacity(0.5)),
   ),
-  disabledColor: colors.disabled,
-  hintColor: colors.hintText,
+  buttonTheme: ButtonThemeData(
+    buttonColor: lightColorSchemes.primary,
+    textTheme: ButtonTextTheme.primary,
+  ),
+  elevatedButtonTheme: ElevatedButtonThemeData(
+    style: ElevatedButton.styleFrom(
+      disabledBackgroundColor: colors.disabled,
+      disabledForegroundColor: lightColorSchemes.tertiary,
+      foregroundColor: lightColorSchemes.surface,
+      backgroundColor: lightColorSchemes.primary,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(8.r),
+      ),
+      padding: EdgeInsets.symmetric(
+        vertical: 12.h,
+        horizontal: 16.w,
+      ),
+      textStyle: textTheme.bodyLargeMedium,
+    ),
+  ),
 );
