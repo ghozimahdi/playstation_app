@@ -1,0 +1,36 @@
+name: ps5_99
+packages:
+  - .
+
+command:
+  version:
+    branch: master
+
+scripts:
+  generate-env:
+    run: melos exec --depends-on="envied_generator" -- "dart run build_runner build -d"
+    description: "Run build_runner in all of the packages that depends on it."
+  generate-locale:
+    run: melos exec --depends-on="easy_localization" -- "flutter packages run easy_localization:generate -f keys -S assets/translations"
+    description: "Run easy_localization with depends-on"
+  generate-assets:
+    run: melos exec --depends-on="flutter_gen_runner" -- "dart run build_runner build -d"
+    description: "Run flutter_gen with depends-on"
+  generate-launcher-icons:
+    run: melos exec --depends-on="flutter_launcher_icons" -- "flutter pub run flutter_launcher_icons -f flutter_launcher_icons.yaml"
+    description: "Run flutter_launcher_icons with depends-on"
+  generate-native-splash:
+    run: melos exec --depends-on="flutter_native_splash" -- "dart run flutter_native_splash:create --path=flutter_native_splash.yaml"
+    description: "Run flutter_native_splash with depends-on"
+  build:
+    run: melos exec --depends-on="build_runner" -- "dart run build_runner build -d"
+    description: "Run build runner in all packages that depend on it."
+  format:
+    run: melos exec -- "dart format . --fix && dart fix --apply"
+    description: "Run dart format and dart fix for all packages"
+  get:
+    run: melos exec --depends-on="flutter" -- "flutter pub get"
+    description: "Run `flutter pub get` in every packages."
+  upgrade:
+    run: melos exec --depends-on="flutter" -- "flutter pub upgrade"
+    description: "Run `flutter pub upgrade` in every packages."
