@@ -7,6 +7,7 @@ class AppPagedListView<PageKeyType, ItemType> extends StatefulWidget {
   final void Function(PageKeyType) pageRequest;
   final WidgetBuilder? firstPageProgressIndicatorBuilder;
   final WidgetBuilder? newPageProgressIndicatorBuilder;
+  final WidgetBuilder? firstPageErrorIndicatorBuilder;
   final ScrollPhysics? physics;
   final bool shrinkWrap;
   final EdgeInsetsGeometry? padding;
@@ -21,6 +22,7 @@ class AppPagedListView<PageKeyType, ItemType> extends StatefulWidget {
     this.newPageProgressIndicatorBuilder,
     this.physics,
     this.padding,
+    this.firstPageErrorIndicatorBuilder,
   });
 
   @override
@@ -48,6 +50,7 @@ class _AppPagedListViewState<PageKeyType, ItemType>
         firstPageProgressIndicatorBuilder:
             widget.firstPageProgressIndicatorBuilder,
         newPageProgressIndicatorBuilder: widget.newPageProgressIndicatorBuilder,
+        firstPageErrorIndicatorBuilder: widget.firstPageErrorIndicatorBuilder,
       ),
     );
   }

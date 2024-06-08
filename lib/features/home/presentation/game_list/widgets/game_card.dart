@@ -1,12 +1,13 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:ps5_99/common/datetime_extensions.dart';
 import 'package:ps5_99/common/widgets/app_shimmer.dart';
 import 'package:ps5_99/design_system/color_schemes.dart';
 import 'package:ps5_99/design_system/typography_extension.dart';
 import 'package:ps5_99/features/home/domain/model/games_model.dart';
+import 'package:ps5_99/generated/assets.gen.dart';
 
 class GameCard extends StatelessWidget {
   final GamesModel games;
@@ -67,10 +68,7 @@ class GameCard extends StatelessWidget {
                       ),
                       4.verticalSpace,
                       Text(
-                        DateFormat(
-                          'd MMMM yyyy',
-                          Localizations.localeOf(context).toString(),
-                        ).format(games.released),
+                        games.released.formatWithLocale(context),
                         style: context.textTheme.bodySmall?.copyWith(
                           color: colors.white,
                         ),
@@ -106,12 +104,17 @@ class GameCard extends StatelessWidget {
                 height: 100.h,
                 imageUrl: games.imageUrl,
                 fit: BoxFit.cover,
-                placeholder: (context, url) => Center(
+                placeholder: (_, __) => Center(
                   child: CircularProgressIndicator(
                     strokeWidth: 6,
                     color: colors.secondary,
                     backgroundColor: colors.secondary.withOpacity(0.2),
                   ),
+                ),
+                errorWidget: (_, __, ___) => Container(
+                  width: double.infinity,
+                  color: colors.white,
+                  child: Image.asset(AppAssets.images.img404.path),
                 ),
               ),
             ),
