@@ -2,6 +2,10 @@
   "button": {
   },
   "error": {
+    "connection_title": "Internet connection interrupted!",
+    "connection_subtitle": "Make sure your internet is smooth by double-checking your data package, WiFi or network at your place",
+    "general_title": "An error occurred on the server!",
+    "general_subtitle": "Oops, it looks like our server is undergoing maintenance. Please try again in a moment"
   },
   "hint": {
     "search": "Search"

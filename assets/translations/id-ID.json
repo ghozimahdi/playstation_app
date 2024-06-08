@@ -2,6 +2,10 @@
   "button": {
   },
   "error": {
+    "connection_title": "Koneksi internet terganggu!",
+    "connection_subtitle": "Yuk, pastikan internetmu lancar dengan cek ulang paket data, WiFi atau jaringan di tempatmu",
+    "general_title": "Terjadi kesalahan pada server!",
+    "general_subtitle": "Oops, sepertinya server kami sedang ada perbaikan. Silakan coba beberapa saat lagi"
   },
   "hint": {
     "search": "Pencarian"
