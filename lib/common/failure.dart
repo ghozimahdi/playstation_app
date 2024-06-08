@@ -1,7 +1,6 @@
 import 'package:equatable/equatable.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:ps5_99/common/localization.dart';
 import 'package:ps5_99/core/exception/client_exception.dart';
 import 'package:ps5_99/core/exception/connection_exception.dart';
 import 'package:ps5_99/core/exception/permission_denied.dart';
@@ -21,7 +20,7 @@ class Failure extends Equatable {
   final String? title;
   final String? message;
   final int? statusCode;
-  final SvgPicture? image;
+  final Widget? image;
   final FailureType type;
 
   const Failure({
@@ -45,34 +44,35 @@ class Failure extends Equatable {
     switch (e.runtimeType) {
       case const (ServerException):
         return Failure(
-          title: null,
-          message: null,
-          image: null,
+          title: cw.error_general_title.t,
+          message: cw.error_general_subtitle.t,
+          image: Image.asset(AppAssets.images.imgServerError.path),
           type: FailureType.server,
         );
       case const (ConnectionException):
         return Failure(
-          title: null,
-          message: null,
-          image: null,
+          title: cw.error_connection_title.t,
+          message: cw.error_connection_subtitle.t,
+          image: Image.asset(AppAssets.images.imgServerError.path),
           type: FailureType.connection,
         );
       case final ClientException e:
         return Failure(
           message: e.message,
           statusCode: e.response?.statusCode ?? 0,
-          image: null,
+          image: Image.asset(AppAssets.images.imgServerError.path),
           type: FailureType.client,
         );
       case const (PermissionDenied):
-        return const Failure(
+        return Failure(
           type: FailureType.permissionDenied,
+          image: Image.asset(AppAssets.images.imgServerError.path),
         );
       default:
         return Failure(
-          title: '',
-          message: '',
-          image: null,
+          title: cw.error_general_title.t,
+          message: cw.error_general_subtitle.t,
+          image: Image.asset(AppAssets.images.imgServerError.path),
         );
     }
   }
