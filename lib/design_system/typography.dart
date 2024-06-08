@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:ps5_99/design_system/color_schemes.dart';
 import 'package:ps5_99/generated/fonts.gen.dart';
-
-import 'color_schemes.dart';
 
 final textTheme = TextTheme(
   headlineSmall: TextStyle(

@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ps5_99/design_system/color_schemes.dart';
 import 'package:ps5_99/design_system/typography.dart';
 import 'package:ps5_99/design_system/typography_extension.dart';
-import 'package:ps5_99/generated/colors.gen.dart';
 
 final ThemeData lightTheme = ThemeData.light(useMaterial3: true).copyWith(
   colorScheme: lightColorSchemes,
