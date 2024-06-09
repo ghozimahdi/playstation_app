@@ -1,5 +1,6 @@
 {
   "button": {
+    "try_again": "Try Again"
   },
   "error": {
     "connection_title": "Internet connection interrupted!",
