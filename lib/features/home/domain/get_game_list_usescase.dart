@@ -14,7 +14,7 @@ class GetGameListUsesCase
   @override
   Future<List<GamesModel>> doWork(GetGameListUsesCaseParams params) async {
     final result = await _repository.getGameList(page: params.page);
-    return result.toGameList();
+    return result.toGameListModel();
   }
 }
 

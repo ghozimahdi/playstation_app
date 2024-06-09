@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 
-class AppPagedListView<PageKeyType, ItemType> extends StatefulWidget {
+class AppPagedGridView<PageKeyType, ItemType> extends StatefulWidget {
   final PagingController<PageKeyType, ItemType> pagingController;
   final ItemWidgetBuilder<ItemType> itemBuilder;
   final void Function(PageKeyType) pageRequest;
@@ -11,8 +11,9 @@ class AppPagedListView<PageKeyType, ItemType> extends StatefulWidget {
   final ScrollPhysics? physics;
   final bool shrinkWrap;
   final EdgeInsetsGeometry? padding;
+  final SliverGridDelegate gridDelegate;
 
-  const AppPagedListView({
+  const AppPagedGridView({
     super.key,
     required this.pagingController,
     required this.itemBuilder,
@@ -23,15 +24,16 @@ class AppPagedListView<PageKeyType, ItemType> extends StatefulWidget {
     this.physics,
     this.padding,
     this.firstPageErrorIndicatorBuilder,
+    required this.gridDelegate,
   });
 
   @override
-  State<AppPagedListView> createState() =>
-      _AppPagedListViewState<PageKeyType, ItemType>();
+  State<AppPagedGridView> createState() =>
+      _AppPagedGridViewState<PageKeyType, ItemType>();
 }
 
-class _AppPagedListViewState<PageKeyType, ItemType>
-    extends State<AppPagedListView<PageKeyType, ItemType>> {
+class _AppPagedGridViewState<PageKeyType, ItemType>
+    extends State<AppPagedGridView<PageKeyType, ItemType>> {
   @override
   void initState() {
     widget.pagingController.addPageRequestListener(widget.pageRequest);
@@ -40,7 +42,7 @@ class _AppPagedListViewState<PageKeyType, ItemType>
 
   @override
   Widget build(BuildContext context) {
-    return PagedListView<PageKeyType, ItemType>(
+    return PagedGridView<PageKeyType, ItemType>(
       padding: widget.padding,
       pagingController: widget.pagingController,
       physics: widget.physics,
@@ -52,6 +54,7 @@ class _AppPagedListViewState<PageKeyType, ItemType>
         newPageProgressIndicatorBuilder: widget.newPageProgressIndicatorBuilder,
         firstPageErrorIndicatorBuilder: widget.firstPageErrorIndicatorBuilder,
       ),
+      gridDelegate: widget.gridDelegate,
     );
   }
 }

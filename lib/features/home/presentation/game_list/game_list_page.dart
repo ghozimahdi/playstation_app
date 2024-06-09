@@ -4,12 +4,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:ps5_99/app_router.gr.dart';
+import 'package:ps5_99/common/widgets/app_error_card.dart';
 import 'package:ps5_99/common/localization.dart';
-import 'package:ps5_99/design_system/color_schemes.dart';
 import 'package:ps5_99/design_system/typography_extension.dart';
 import 'package:ps5_99/features/home/domain/model/games_model.dart';
 import 'package:ps5_99/features/home/presentation/game_list/bloc/game_list_bloc.dart';
-import 'package:ps5_99/features/home/presentation/game_list/widgets/app_paged_list_view.dart';
+import 'package:ps5_99/features/home/presentation/game_list/widgets/app_paged_grid_view.dart';
 import 'package:ps5_99/features/home/presentation/game_list/widgets/game_card.dart';
 import 'package:ps5_99/injection.dart';
 
@@ -66,7 +66,6 @@ class _GameListPageState extends State<GameListPage> {
                       cw.title_popular_games.t,
                       style: context.textTheme.bodyLargeSemiBold,
                     ),
-                    16.verticalSpace,
                     Expanded(child: _buildGameListCard(context)),
                   ],
                 ),
@@ -90,7 +89,13 @@ class _GameListPageState extends State<GameListPage> {
           error: state.error,
         );
       },
-      child: AppPagedListView<int, GamesModel>(
+      child: AppPagedGridView<int, GamesModel>(
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          childAspectRatio: 0.67,
+          crossAxisSpacing: 10,
+          mainAxisSpacing: 10,
+          crossAxisCount: 2,
+        ),
         padding: EdgeInsets.symmetric(vertical: 16.h),
         pagingController: _pagingController,
         pageRequest: (pageKey) {
@@ -98,22 +103,17 @@ class _GameListPageState extends State<GameListPage> {
             GameListEvent.fetchGames(page: pageKey),
           );
         },
-        itemBuilder: (context, item, _) => Padding(
-          padding: EdgeInsets.only(
-            bottom: 30.h,
+        itemBuilder: (context, item, _) => InkWell(
+          child: GameCard(
+            games: item,
           ),
-          child: InkWell(
-            child: GameCard(
-              games: item,
-            ),
-            onTap: () {
-              context.pushRoute(
-                GameDetailRoute(
-                  id: item.id,
-                ),
-              );
-            },
-          ),
+          onTap: () {
+            context.pushRoute(
+              GameDetailRoute(
+                id: item.id,
+              ),
+            );
+          },
         ),
         firstPageProgressIndicatorBuilder: (context) {
           return Column(
@@ -122,10 +122,24 @@ class _GameListPageState extends State<GameListPage> {
               ...List.generate(
                 20,
                 (index) => Padding(
-                  padding: EdgeInsets.only(
-                    bottom: 15.dm,
+                  padding: EdgeInsets.only(bottom: 10.h),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: AspectRatio(
+                          aspectRatio: 0.67,
+                          child: GameCard.placeholder(),
+                        ),
+                      ),
+                      10.horizontalSpace,
+                      Expanded(
+                        child: AspectRatio(
+                          aspectRatio: 0.67,
+                          child: GameCard.placeholder(),
+                        ),
+                      ),
+                    ],
                   ),
-                  child: GameCard.placeholder(),
                 ),
               ),
             ],
@@ -139,39 +153,13 @@ class _GameListPageState extends State<GameListPage> {
             child: GameCard.placeholder(),
           );
         },
-        firstPageErrorIndicatorBuilder: (context) {
-          return Padding(
-            padding: EdgeInsets.all(20.dm),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                SizedBox(
-                  width: 100.w,
-                  height: 100.h,
-                  child: gameListBloc.state.error?.image ??
-                      const SizedBox.shrink(),
-                ),
-                16.verticalSpace,
-                Text(
-                  gameListBloc.state.error?.message ?? '',
-                  style: context.textTheme.bodySmallSemiBold?.copyWith(
-                    color: colors.primaryText,
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-                16.verticalSpace,
-                FilledButton(
-                  onPressed: () {
-                    _pagingController.refresh();
-                  },
-                  child: const Text(
-                    'Coba Lagi',
-                  ),
-                ),
-              ],
-            ),
-          );
-        },
+        firstPageErrorIndicatorBuilder: (context) => AppErrorCard(
+          message: gameListBloc.state.error?.message ?? '',
+          image: gameListBloc.state.error?.image,
+          onPressed: () {
+            _pagingController.refresh();
+          },
+        ),
       ),
     );
   }

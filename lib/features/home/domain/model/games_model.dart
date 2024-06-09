@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'games_model.freezed.dart';
@@ -10,5 +12,7 @@ class GamesModel with _$GamesModel {
     required String name,
     required DateTime released,
     required double rating,
+    required int metaCriticScore,
+    required Color metaCriticColor,
   }) = _GamesModel;
 }
