@@ -15,5 +15,5 @@ class ItemDto with _$ItemDto {
   }) = _ItemDto;
 
   factory ItemDto.fromJson(Map<String, dynamic> json) =>
-        _$ItemDtoFromJson(json);
+      _$ItemDtoFromJson(json);
 }

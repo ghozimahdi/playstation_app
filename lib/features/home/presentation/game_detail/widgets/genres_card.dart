@@ -45,7 +45,7 @@ class GenresCard extends StatelessWidget {
                 ),
               ],
             ),
-          )
+          ),
         ],
       ),
     );

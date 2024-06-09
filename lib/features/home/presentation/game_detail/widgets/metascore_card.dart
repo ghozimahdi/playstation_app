@@ -53,7 +53,7 @@ class MetaScoreCard extends StatelessWidget {
                     ),
                   ),
                 ),
-              )
+              ),
             ],
           ),
         ),
