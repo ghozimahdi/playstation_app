@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:ps5_99/common/localization.dart';
 import 'package:ps5_99/design_system/color_schemes.dart';
 import 'package:ps5_99/design_system/typography_extension.dart';
 
@@ -22,11 +23,11 @@ class PlatformsPublisherCard extends StatelessWidget {
       padding: EdgeInsets.all(12.dm),
       child: Column(
         children: [
-          _buildItem(context, 'Platforms: ', platforms),
+          _buildItem(context, cw.label_platforms.t, platforms),
           4.verticalSpace,
-          _buildItem(context, 'Developer: ', developer),
+          _buildItem(context, cw.label_developer.t, developer),
           4.verticalSpace,
-          _buildItem(context, 'Publisher: ', publisher),
+          _buildItem(context, cw.label_publisher.t, publisher),
         ],
       ),
     );

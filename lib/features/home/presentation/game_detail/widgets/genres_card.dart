@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:ps5_99/common/localization.dart';
 import 'package:ps5_99/design_system/color_schemes.dart';
 import 'package:ps5_99/design_system/typography_extension.dart';
 
@@ -20,7 +21,7 @@ class GenresCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Genres: ',
+            cw.label_genres.t,
             style: context.textTheme.bodyLargeBold,
           ),
           Expanded(

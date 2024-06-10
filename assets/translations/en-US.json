@@ -12,8 +12,15 @@
     "search": "Search"
   },
   "label": {
+    "released_on": "Released On: ",
+    "platforms": "Platforms: ",
+    "developer": "Developer: ",
+    "publisher": "Publisher: ",
+    "meta_score": "METASCORE",
+    "genres": "Genre: "
   },
   "text": {
+    "base_on_critic": "Based on {} Critic Reviews"
   },
   "title": {
     "popular_games": "Popular Games"

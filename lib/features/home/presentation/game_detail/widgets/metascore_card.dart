@@ -1,5 +1,7 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:ps5_99/common/localization.dart';
 import 'package:ps5_99/design_system/color_schemes.dart';
 import 'package:ps5_99/design_system/typography_extension.dart';
 
@@ -27,13 +29,18 @@ class MetaScoreCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'METASCORE',
-                    style:
-                        context.textTheme.bodySmall?.copyWith(letterSpacing: 3),
+                    cw.label_meta_score.t,
+                    style: context.textTheme.bodySmall?.copyWith(
+                      letterSpacing: 3,
+                    ),
                   ),
                   4.verticalSpace,
                   Text(
-                    'Based on $reviewsCount Critic Reviews',
+                    cw.text_base_on_critic.tr(
+                      args: [
+                        '$reviewsCount',
+                      ],
+                    ),
                     style: context.textTheme.bodySmall,
                   ),
                 ],

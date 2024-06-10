@@ -12,8 +12,15 @@
     "search": "Pencarian"
   },
   "label": {
+    "released_on": "Dirilis Pada: ",
+    "platforms": "Platforms: ",
+    "developer": "Developer: ",
+    "publisher": "Publisher: ",
+    "meta_score": "METASCORE",
+    "genres": "Genres: "
   },
   "text": {
+    "base_on_critic": "Berdasarkan {} Ulasan Kritikus"
   },
   "title": {
     "popular_games": "Permainan Populer"

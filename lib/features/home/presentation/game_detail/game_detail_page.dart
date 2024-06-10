@@ -6,6 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:html/parser.dart';
 import 'package:ps5_99/common/datetime_extensions.dart';
+import 'package:ps5_99/common/localization.dart';
 import 'package:ps5_99/common/widgets/app_cached_network_image.dart';
 import 'package:ps5_99/common/widgets/app_circular_progress_indicator.dart';
 import 'package:ps5_99/common/widgets/app_error_card.dart';
@@ -162,7 +163,7 @@ class _GameDetailPageState extends State<GameDetailPage> {
                 Row(
                   children: [
                     Text(
-                      'Released On: ',
+                      cw.label_released_on.t,
                       style: context.textTheme.bodyLargeBold,
                     ),
                     Text(
