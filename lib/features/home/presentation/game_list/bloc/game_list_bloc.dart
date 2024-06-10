@@ -3,7 +3,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:ps5_99/common/failure.dart';
 import 'package:ps5_99/features/home/domain/get_game_list_usescase.dart';
-import 'package:ps5_99/features/home/domain/model/games_model.dart';
+import 'package:ps5_99/features/home/domain/model/game_model.dart';
 
 part 'game_list_bloc.freezed.dart';
 

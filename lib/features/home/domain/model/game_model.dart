@@ -2,11 +2,11 @@ import 'dart:ui';
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'games_model.freezed.dart';
+part 'game_model.freezed.dart';
 
 @freezed
-class GamesModel with _$GamesModel {
-  const factory GamesModel({
+class GameModel with _$GameModel {
+  const factory GameModel({
     required String id,
     required String imageUrl,
     required String name,
@@ -14,5 +14,5 @@ class GamesModel with _$GamesModel {
     required double rating,
     required int metaCriticScore,
     required Color metaCriticColor,
-  }) = _GamesModel;
+  }) = _GameModel;
 }

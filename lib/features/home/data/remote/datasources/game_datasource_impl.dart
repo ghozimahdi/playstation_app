@@ -3,7 +3,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:injectable/injectable.dart';
 import 'package:ps5_99/features/home/data/remote/datasources/game_datasource.dart';
 import 'package:ps5_99/features/home/data/remote/dtos/game_detail_response_dto.dart';
-import 'package:ps5_99/features/home/data/remote/dtos/game_list_response_dto.dart';
+import 'package:ps5_99/features/home/data/remote/dtos/game_response_dto.dart';
 
 @LazySingleton(as: GameDatasource)
 class GameDataSourcesImpl extends GameDatasource {
@@ -22,7 +22,7 @@ class GameDataSourcesImpl extends GameDatasource {
   }
 
   @override
-  Future<List<GameListResponseDto>> getGameList({
+  Future<List<GameResponseDto>> getGameList({
     required int page,
   }) async {
     try {
@@ -40,7 +40,7 @@ class GameDataSourcesImpl extends GameDatasource {
       final data = response.data as Map<String, dynamic>;
       final results = data['results'] as List<dynamic>;
       return results
-          .map((e) => GameListResponseDto.fromJson(e as Map<String, dynamic>))
+          .map((e) => GameResponseDto.fromJson(e as Map<String, dynamic>))
           .toList();
     } catch (_) {
       rethrow;

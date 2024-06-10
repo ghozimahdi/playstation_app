@@ -6,9 +6,4 @@ class ClientException extends DioException {
     required super.requestOptions,
     required String super.message,
   });
-
-  @override
-  String toString() {
-    return message ?? '';
-  }
 }

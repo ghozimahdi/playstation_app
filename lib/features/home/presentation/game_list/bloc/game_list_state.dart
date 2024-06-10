@@ -5,7 +5,7 @@ class GameListState with _$GameListState {
   const factory GameListState({
     required int? nextPage,
     required Failure? error,
-    List<GamesModel>? games,
+    List<GameModel>? games,
   }) = _GameListState;
 
   factory GameListState.initial() => const GameListState(

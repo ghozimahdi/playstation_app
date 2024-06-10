@@ -8,7 +8,7 @@ import 'package:ps5_99/common/localization.dart';
 import 'package:ps5_99/common/widgets/app_error_card.dart';
 import 'package:ps5_99/common/widgets/app_shimmer.dart';
 import 'package:ps5_99/design_system/typography_extension.dart';
-import 'package:ps5_99/features/home/domain/model/games_model.dart';
+import 'package:ps5_99/features/home/domain/model/game_model.dart';
 import 'package:ps5_99/features/home/presentation/game_list/bloc/game_list_bloc.dart';
 import 'package:ps5_99/features/home/presentation/game_list/widgets/app_paged_grid_view.dart';
 import 'package:ps5_99/features/home/presentation/game_list/widgets/game_card.dart';
@@ -23,7 +23,7 @@ class GameListPage extends StatefulWidget {
 }
 
 class _GameListPageState extends State<GameListPage> {
-  final PagingController<int, GamesModel> _pagingController =
+  final PagingController<int, GameModel> _pagingController =
       PagingController(firstPageKey: 1, invisibleItemsThreshold: 3);
 
   @override
@@ -90,7 +90,7 @@ class _GameListPageState extends State<GameListPage> {
           error: state.error,
         );
       },
-      child: AppPagedGridView<int, GamesModel>(
+      child: AppPagedGridView<int, GameModel>(
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           childAspectRatio: 0.67,
           crossAxisSpacing: 10,

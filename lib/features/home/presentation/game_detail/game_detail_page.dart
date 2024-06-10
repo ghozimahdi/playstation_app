@@ -65,8 +65,6 @@ class _GameDetailPageState extends State<GameDetailPage> {
             ),
             body: SafeArea(
               child: state.results.fold(
-                //TODO: implement unit testing
-                //TODO: implement widget testing
                 () => const GameDetailLoadingCard(),
                 (a) => a.fold(
                   (l) => AppErrorCard(

@@ -10,7 +10,6 @@ class ItemDto with _$ItemDto {
   const factory ItemDto({
     @JsonKey(name: "id") int? id,
     @JsonKey(name: "name") String? name,
-    @JsonKey(name: "slug") String? slug,
     @JsonKey(name: "image_background") String? imageBackground,
   }) = _ItemDto;
 

@@ -45,7 +45,7 @@ class GameDetailLoadingCard extends StatelessWidget {
                 ),
               ],
             ),
-          )
+          ),
         ],
       ),
     );

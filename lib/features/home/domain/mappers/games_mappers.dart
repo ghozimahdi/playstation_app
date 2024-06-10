@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:ps5_99/design_system/color_schemes.dart';
 import 'package:ps5_99/features/home/data/remote/dtos/game_detail_response_dto.dart';
-import 'package:ps5_99/features/home/data/remote/dtos/game_list_response_dto.dart';
+import 'package:ps5_99/features/home/data/remote/dtos/game_response_dto.dart';
 import 'package:ps5_99/features/home/domain/model/game_detail_model.dart';
-import 'package:ps5_99/features/home/domain/model/games_model.dart';
+import 'package:ps5_99/features/home/domain/model/game_model.dart';
 
-extension GamesMappers on List<GameListResponseDto> {
-  List<GamesModel> toGameListModel() {
+extension GamesMappers on List<GameResponseDto> {
+  List<GameModel> toGameListModel() {
     return map((e) => e.toGamesModel()).toList();
   }
 }
 
-extension GameListResponseDtoMapper on GameListResponseDto {
-  GamesModel toGamesModel() {
-    return GamesModel(
+extension GameListResponseDtoMapper on GameResponseDto {
+  GameModel toGamesModel() {
+    return GameModel(
       imageUrl: backgroundImage ?? '',
       name: name ?? '',
       released: released ?? DateTime.now(),

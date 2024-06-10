@@ -5,10 +5,10 @@ import 'package:ps5_99/common/datetime_extensions.dart';
 import 'package:ps5_99/common/widgets/app_cached_network_image.dart';
 import 'package:ps5_99/design_system/color_schemes.dart';
 import 'package:ps5_99/design_system/typography_extension.dart';
-import 'package:ps5_99/features/home/domain/model/games_model.dart';
+import 'package:ps5_99/features/home/domain/model/game_model.dart';
 
 class GameCard extends StatelessWidget {
-  final GamesModel games;
+  final GameModel games;
 
   const GameCard({
     super.key,

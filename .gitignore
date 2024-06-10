@@ -86,6 +86,7 @@ doc/api/
 !**/ios/**/default.{mode1v3, mode2v3, pbxuser, perspectivev3}
 !/packages/flutter_tools/test/data/dart_dependencies_test/**/.packages
 *.assets.dart
+*.mocks.dart
 
 # .env files
 shared/core/.env_*

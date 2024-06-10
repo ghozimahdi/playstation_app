@@ -1,7 +1,7 @@
 import 'package:injectable/injectable.dart';
 import 'package:ps5_99/features/home/data/remote/datasources/game_datasource.dart';
 import 'package:ps5_99/features/home/data/remote/dtos/game_detail_response_dto.dart';
-import 'package:ps5_99/features/home/data/remote/dtos/game_list_response_dto.dart';
+import 'package:ps5_99/features/home/data/remote/dtos/game_response_dto.dart';
 import 'package:ps5_99/features/home/domain/repository/game_repository.dart';
 
 @LazySingleton(as: GameRepository)
@@ -11,7 +11,7 @@ class GameRepositoryImpl extends GameRepository {
   GameRepositoryImpl(this.datasource);
 
   @override
-  Future<List<GameListResponseDto>> getGameList({required int page}) {
+  Future<List<GameResponseDto>> getGameList({required int page}) {
     return datasource.getGameList(page: page);
   }
 
