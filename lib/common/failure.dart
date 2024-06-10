@@ -56,10 +56,11 @@ class Failure extends Equatable {
           image: Image.asset(AppAssets.images.imgServerError.path),
           type: FailureType.connection,
         );
-      case final ClientException e:
+      case const (ClientException):
+        final clientException = e as ClientException;
         return Failure(
-          message: e.message,
-          statusCode: e.response?.statusCode ?? 0,
+          message: clientException.message,
+          statusCode: clientException.response?.statusCode ?? 0,
           image: Image.asset(AppAssets.images.imgServerError.path),
           type: FailureType.client,
         );
