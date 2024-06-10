@@ -3,7 +3,6 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ps5_99/common/datetime_extensions.dart';
 import 'package:ps5_99/common/widgets/app_cached_network_image.dart';
-import 'package:ps5_99/common/widgets/app_shimmer.dart';
 import 'package:ps5_99/design_system/color_schemes.dart';
 import 'package:ps5_99/design_system/typography_extension.dart';
 import 'package:ps5_99/features/home/domain/model/games_model.dart';
@@ -15,15 +14,6 @@ class GameCard extends StatelessWidget {
     super.key,
     required this.games,
   });
-
-  static Widget placeholder() {
-    return AppShimmer(
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(5),
-        child: const ColoredBox(color: colors.black),
-      ),
-    );
-  }
 
   @override
   Widget build(BuildContext context) {

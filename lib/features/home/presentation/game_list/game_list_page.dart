@@ -6,6 +6,7 @@ import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:ps5_99/app_router.gr.dart';
 import 'package:ps5_99/common/localization.dart';
 import 'package:ps5_99/common/widgets/app_error_card.dart';
+import 'package:ps5_99/common/widgets/app_shimmer.dart';
 import 'package:ps5_99/design_system/typography_extension.dart';
 import 'package:ps5_99/features/home/domain/model/games_model.dart';
 import 'package:ps5_99/features/home/presentation/game_list/bloc/game_list_bloc.dart';
@@ -125,17 +126,17 @@ class _GameListPageState extends State<GameListPage> {
                   padding: EdgeInsets.only(bottom: 10.h),
                   child: Row(
                     children: [
-                      Expanded(
+                      const Expanded(
                         child: AspectRatio(
                           aspectRatio: 0.67,
-                          child: GameCard.placeholder(),
+                          child: AppShimmer(),
                         ),
                       ),
                       10.horizontalSpace,
-                      Expanded(
+                      const Expanded(
                         child: AspectRatio(
                           aspectRatio: 0.67,
-                          child: GameCard.placeholder(),
+                          child: AppShimmer(),
                         ),
                       ),
                     ],
@@ -150,7 +151,7 @@ class _GameListPageState extends State<GameListPage> {
             padding: EdgeInsets.only(
               bottom: 15.dm,
             ),
-            child: GameCard.placeholder(),
+            child: const AppShimmer(),
           );
         },
         firstPageErrorIndicatorBuilder: (context) => AppErrorCard(

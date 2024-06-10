@@ -8,13 +8,13 @@ import 'package:html/parser.dart';
 import 'package:ps5_99/common/datetime_extensions.dart';
 import 'package:ps5_99/common/localization.dart';
 import 'package:ps5_99/common/widgets/app_cached_network_image.dart';
-import 'package:ps5_99/common/widgets/app_circular_progress_indicator.dart';
 import 'package:ps5_99/common/widgets/app_error_card.dart';
 import 'package:ps5_99/design_system/color_schemes.dart';
 import 'package:ps5_99/design_system/typography_extension.dart';
 import 'package:ps5_99/features/home/domain/model/game_detail_model.dart';
 import 'package:ps5_99/features/home/presentation/game_detail/bloc/game_detail_bloc.dart';
 import 'package:ps5_99/features/home/presentation/game_detail/widgets/dot_indicator.dart';
+import 'package:ps5_99/features/home/presentation/game_detail/widgets/game_detail_loading_card.dart';
 import 'package:ps5_99/features/home/presentation/game_detail/widgets/genres_card.dart';
 import 'package:ps5_99/features/home/presentation/game_detail/widgets/metascore_card.dart';
 import 'package:ps5_99/features/home/presentation/game_detail/widgets/platforms_publisher_card.dart';
@@ -65,11 +65,9 @@ class _GameDetailPageState extends State<GameDetailPage> {
             ),
             body: SafeArea(
               child: state.results.fold(
-                //TODO: cw should be use easy_localization
-                //TODO: should be use shimmer
                 //TODO: implement unit testing
                 //TODO: implement widget testing
-                () => const Center(child: AppCircularProgressIndicator()),
+                () => const GameDetailLoadingCard(),
                 (a) => a.fold(
                   (l) => AppErrorCard(
                     message: l.message ?? '',

@@ -3,11 +3,11 @@ import 'package:ps5_99/design_system/color_schemes.dart';
 import 'package:shimmer/shimmer.dart';
 
 class AppShimmer extends StatelessWidget {
-  final Widget child;
+  final double radius;
 
   const AppShimmer({
     super.key,
-    required this.child,
+    this.radius = 5,
   });
 
   @override
@@ -15,7 +15,10 @@ class AppShimmer extends StatelessWidget {
     return Shimmer.fromColors(
       baseColor: colors.gray70,
       highlightColor: colors.white,
-      child: child,
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(radius),
+        child: const ColoredBox(color: colors.black),
+      ),
     );
   }
 }
