@@ -75,4 +75,3 @@ lib/
 ### Code Coverage
 
 ![code-coverage-report.png](docs/code-coverage-report.png)
-You can view the code coverage report [here](docs/coverage_report/index.html).
