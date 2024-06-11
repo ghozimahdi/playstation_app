@@ -23,26 +23,34 @@ Make sure you have the following installed:
     git clone https://github.com/your-username/playstation-5-game-list.git
     cd playstation-5-game-list
     ```
+   
+2. **Add the .env file:**
 
-2. **Install dependencies:**
+   Create a `.env` file in the root directory of the project and add the following content:
+
+    ```env
+    BASE_URL=https://api.rawg.io/api/
+    KEY=02ef6ba5d13444ee86bad607e8bce3f4
+    ```
+3. **Install dependencies:**
 
     ```sh
     melos get
     ```
-
-3. **Build the project:**
+   
+4. **Build the project:**
 
     ```sh
     melos build
     ```
 
-4. **Generate localization files:**
+5. **Generate localization files:**
 
     ```sh
     melos generate-locale
     ```
 
-5. **Run the application:**
+6. **Run the application:**
 
     ```sh
     flutter run
